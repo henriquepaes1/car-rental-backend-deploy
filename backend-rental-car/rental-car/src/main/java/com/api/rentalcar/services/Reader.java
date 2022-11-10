@@ -9,9 +9,12 @@ import java.util.List;
 public class Reader {
     CarRepository carRepository;
 
+    public Reader () {
+        carRepository = new CarRepository();
+    }
+
     public List<Car> listByType(String type) {
         List<Car> carsList = new ArrayList<>();
-        carRepository = new CarRepository();
         carsList = carRepository.readAllBy("type", type);
         return carsList;
     }

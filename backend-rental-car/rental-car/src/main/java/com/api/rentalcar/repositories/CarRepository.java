@@ -15,11 +15,12 @@ public class CarRepository extends Repository {
 
     public List<Car> readAllBy(String field, String value) {
         List<Car> carsList = new ArrayList<>();
-        query = "SELECT * FROM Visited WHERE " + field + " = " + "'" + value + "'";
+        query = "SELECT * FROM car WHERE " + field + " = " + "'" + value + "'";
         PreparedStatement ps = null;
 
         try {
-            ps = this.DatabaseConn.prepareStatement(query);
+            ps = this.databaseConn.prepareStatement(query);
+            System.out.println("Successfully ");
         } catch (SQLException e) {
             System.out.println("Could not generate query" + e);
         }
@@ -28,6 +29,7 @@ public class CarRepository extends Repository {
             ResultSet rs = ps.executeQuery();
             while (rs.next())
             {
+                String carID = rs.getString("carID");
                 String model = rs.getString("model");
                 Double rent = rs.getDouble("rent");
                 String make = rs.getString("make");
@@ -40,7 +42,8 @@ public class CarRepository extends Repository {
                 Integer trunk = rs.getInt("trunk");
                 Double consumption = rs.getDouble("consumption");
 
-                Car car = new Car (model, rent, make, color, type, transmission, horsepower, acceleration, seats, trunk, consumption);
+                Car car = new Car (carID, model, rent, make, color, type, transmission, horsepower, acceleration, seats, trunk, consumption);
+                System.out.println(carID + model + make + color + type + transmission + horsepower);
                 carsList.add(car);
             }
         } catch (SQLException e) {

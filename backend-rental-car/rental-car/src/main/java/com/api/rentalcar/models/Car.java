@@ -1,6 +1,7 @@
 package com.api.rentalcar.models;
 
 public class Car {
+    public String carID;
     public String model;
     public Double rent;
     public String make;
@@ -13,8 +14,9 @@ public class Car {
     public Integer trunk;
     public Double consumption;
 
-    public Car (String model, Double rent, String make, String color, String type, String transmission,
+    public Car (String carID, String model, Double rent, String make, String color, String type, String transmission,
                 String horsepower, Double acceleration, Integer seats, Integer trunk, Double consumption) {
+        this.carID = carID;
         this.model = model;
         this.rent = rent;
         this.make = make;

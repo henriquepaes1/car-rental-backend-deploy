@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DatabaseConnectionCreator {
-    public static String dbURL = "jdbc:postgresql://localhost:5432/dt-energia";
-    public static String dbUser = "garsoft";
-    public static String dbUserPwd = "garsoft";
+    public static String dbURL = "jdbc:postgresql://localhost:5432/carrental";
+    public static String dbUser = "izaque";
+    public static String dbUserPwd = "isds";
 
     public static void createConnection() {
         Properties dbInfo = new Properties();
@@ -26,7 +26,7 @@ public class DatabaseConnectionCreator {
             System.out.println("Could not connect to database" + e.toString());
         }
 
-        Repository.DatabaseConn = conn;
+        Repository.databaseConn = conn;
     }
 
 }

@@ -14,7 +14,4 @@ public class RentalCarApplication {
 		DatabaseConnectionCreator.createConnection();
 	}
 
-
-
-
 }

@@ -4,5 +4,5 @@ import java.sql.Connection;
 import java.util.Properties;
 
 public class Repository {
-    public static Connection DatabaseConn;
+    public static Connection databaseConn;
 }
