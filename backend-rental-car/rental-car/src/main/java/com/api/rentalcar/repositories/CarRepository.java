@@ -52,4 +52,8 @@ public class CarRepository extends Repository {
 
         return carsList;
     }
+    
+    public void create(Car car) {
+    	
+    }
 }
