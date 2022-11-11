@@ -9,8 +9,8 @@ import java.util.Properties;
 
 public class DatabaseConnectionCreator {
     public static String dbURL = "jdbc:postgresql://localhost:5432/carrental";
-    public static String dbUser = "izaque";
-    public static String dbUserPwd = "isds";
+    public static String dbUser = "henrique";
+    public static String dbUserPwd = "henrique";
 
     public static void createConnection() {
         Properties dbInfo = new Properties();

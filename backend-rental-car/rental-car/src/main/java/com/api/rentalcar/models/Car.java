@@ -29,4 +29,8 @@ public class Car {
         this.trunk = trunk;
         this.consumption = consumption;
     }
+
+	public Car() {
+		// Construtor padrão para o mapper
+	}
 }

@@ -19,7 +19,7 @@ public class CarRepository extends Repository {
         PreparedStatement ps = null;
 
         try {
-            ps = this.databaseConn.prepareStatement(query);
+            ps = CarRepository.databaseConn.prepareStatement(query);
             System.out.println("Successfully ");
         } catch (SQLException e) {
             System.out.println("Could not generate query" + e);
@@ -53,7 +53,40 @@ public class CarRepository extends Repository {
         return carsList;
     }
     
-    public void create(Car car) {
+    public static int create(Car car) {
+    	PreparedStatement ps = null;
+    	String sql = "INSERT INTO car (model, rent, make, color, type, transmission, "
+    			+ "horsepower, acceleration, seats, trunk, consumption) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    	try {
+			ps = CarRepository.databaseConn.prepareStatement(sql);
+		} catch (SQLException e) {
+			System.out.println("Could not generate query" + e);
+			return 1;
+		}
     	
+    	try {
+			ps.setString(1, car.model);
+			ps.setDouble(2, car.rent);
+			ps.setString(3, car.make);
+			ps.setString(4, car.color);
+			ps.setString(5, car.type);
+			ps.setString(6, car.transmission);
+			ps.setString(7, car.horsepower);
+			ps.setDouble(8, car.acceleration);
+			ps.setInt(9, car.seats);
+			ps.setInt(10, car.trunk);
+			ps.setDouble(11, car.consumption);
+		} catch (SQLException e) {
+			System.out.println("Could not execute query" + e);
+			return 1;
+		}
+    	
+    	try {
+			ps.execute();
+			return 0;
+		} catch (SQLException e) {
+			System.out.println("Could not execute query" + e);
+			return 1;
+		}
     }
 }
