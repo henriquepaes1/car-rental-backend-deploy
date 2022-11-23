@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 @RequestMapping(value = "/car-listing")
 public class CarsListingController {
     Reader reader;
-
+    
+    @CrossOrigin
     @GetMapping("/by-type")
     private ResponseEntity<List<Car>> listCarsByType (@RequestParam String type) {
         List<Car> carsList = new ArrayList<>();
