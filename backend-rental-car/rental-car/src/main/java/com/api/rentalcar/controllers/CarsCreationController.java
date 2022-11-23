@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 @RequestMapping(value = "/car-creation")
 public class CarsCreationController {
@@ -15,13 +15,8 @@ public class CarsCreationController {
 	int response;
 
     @PostMapping("/add-car")
-    private ResponseEntity<String> addCar (@RequestParam String model, @RequestParam double rent, @RequestParam String make, 
-    		@RequestParam String color, @RequestParam String type, @RequestParam String transmission,
-    		@RequestParam String horsepower, @RequestParam double acceleration, @RequestParam int seats,
-    		@RequestParam int trunk, @RequestParam double consumption) {
-    	
-    	currentCar = new Car(null, model, rent, make, color, type, transmission, horsepower, acceleration,
-    			seats, trunk, consumption);
+    private ResponseEntity<String> addCar (@RequestBody Car car) {
+    	currentCar = car;
     	
     	response = CarRepository.create(currentCar);
     	
