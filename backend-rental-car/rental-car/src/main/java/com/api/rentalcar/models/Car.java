@@ -13,9 +13,10 @@ public class Car {
     public Integer seats;
     public Integer trunk;
     public Double consumption;
+    public String imagepath;
 
     public Car (String carID, String model, Double rent, String make, String color, String type, String transmission,
-                String horsepower, Double acceleration, Integer seats, Integer trunk, Double consumption) {
+                String horsepower, Double acceleration, Integer seats, Integer trunk, Double consumption, String imagepath) {
         this.carID = carID;
         this.model = model;
         this.rent = rent;
@@ -28,9 +29,10 @@ public class Car {
         this.seats = seats;
         this.trunk = trunk;
         this.consumption = consumption;
+        this.imagepath = imagepath;
     }
 
 	public Car() {
-		// Construtor padrão para o mapper
+		// default constructor for mapper
 	}
 }

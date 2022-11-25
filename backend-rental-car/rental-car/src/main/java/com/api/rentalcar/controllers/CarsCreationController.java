@@ -6,14 +6,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/car-creation")
 public class CarsCreationController {
 	Car currentCar;
 	int response;
-	
-	@CrossOrigin
+
     @PostMapping("/add-car")
     private ResponseEntity<String> addCar (@RequestBody Car car) {
     	currentCar = car;

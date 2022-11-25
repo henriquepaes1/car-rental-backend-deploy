@@ -41,9 +41,12 @@ public class CarRepository extends Repository {
                 Integer seats = rs.getInt("seats");
                 Integer trunk = rs.getInt("trunk");
                 Double consumption = rs.getDouble("consumption");
+                String imagepath = rs.getString("imagepath");
 
-                Car car = new Car (carID, model, rent, make, color, type, transmission, horsepower, acceleration, seats, trunk, consumption);
-                System.out.println(carID + model + make + color + type + transmission + horsepower);
+                Car car = new Car (carID, model, rent, make, color, type, transmission, horsepower,
+                        acceleration, seats, trunk, consumption, imagepath);
+                System.out.println(carID + model + make + color + type + transmission + horsepower + acceleration
+                + seats + trunk + consumption + imagepath);
                 carsList.add(car);
             }
         } catch (SQLException e) {
@@ -56,7 +59,8 @@ public class CarRepository extends Repository {
     public static int create(Car car) {
     	PreparedStatement ps = null;
     	String sql = "INSERT INTO car (model, rent, make, color, type, transmission, "
-    			+ "horsepower, acceleration, seats, trunk, consumption) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    			+ "horsepower, acceleration, seats, trunk, consumption, imagepath)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     	try {
 			ps = CarRepository.databaseConn.prepareStatement(sql);
 		} catch (SQLException e) {
@@ -76,6 +80,7 @@ public class CarRepository extends Repository {
 			ps.setInt(9, car.seats);
 			ps.setInt(10, car.trunk);
 			ps.setDouble(11, car.consumption);
+            ps.setString(12, car.imagepath);
 		} catch (SQLException e) {
 			System.out.println("Could not execute query" + e);
 			return 1;
