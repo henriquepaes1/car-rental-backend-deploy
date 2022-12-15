@@ -12,7 +12,7 @@ import java.nio.file.StandardCopyOption;
 public class FileUpload {
     public static void saveFile(String fileName, MultipartFile multipartFile)
             throws IOException {
-        Path filePath = Paths.get("/home/izaque/Documents/images/" + fileName);
+        Path filePath = Paths.get("/home/garsoft/Documents/images-car-rental/" + fileName);
 
         try (InputStream inputStream = multipartFile.getInputStream()) {
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);

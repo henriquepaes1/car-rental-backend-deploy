@@ -19,7 +19,7 @@ public class ImageExportController {
             produces = MediaType.IMAGE_JPEG_VALUE)
     public void getImage(@RequestParam String fileName, HttpServletResponse response) throws IOException {
         /* var imgFile = new ClassPathResource("/home/izaque/Documents/images/" + fileName); */
-        File file = new File("/home/izaque/Documents/images/" + fileName);
+        File file = new File("/home/garsoft/Documents/images-car-rental/" + fileName);
         InputStream targetStream = new FileInputStream(file);
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         StreamUtils.copy(targetStream, response.getOutputStream());
