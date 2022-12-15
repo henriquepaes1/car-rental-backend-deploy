@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/car-creation")
 public class CarsCreationController {
 	Car currentCar;
-	int response;
 
     @PostMapping("/add-car")
     private ResponseEntity<String> addCar (@RequestBody Car car) {
     	currentCar = car;
     	
-    	response = CarRepository.create(currentCar);
+    	int response = CarRepository.create(currentCar);
     	
     	if(response == 0) {
     		return new ResponseEntity<String>("{\"message\": \"Carro inserido com sucesso\"}", HttpStatus.OK);
