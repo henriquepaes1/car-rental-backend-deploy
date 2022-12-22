@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DatabaseConnectionCreator {
-    public static String dbURL = "jdbc:postgresql://postgres:Q8UaiuEjOXE6ehYY61xe@containers-us-west-169.railway.app:7635/railway";
+    public static String dbURL = "jdbc:postgresql://containers-us-west-169.railway.app:7635/railway";
     public static String dbUser = "postgres";
     public static String dbUserPwd = "Q8UaiuEjOXE6ehYY61xe";
 
